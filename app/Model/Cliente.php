@@ -2,6 +2,8 @@
 
 class Cliente extends AppModel {
     public $name = 'Cliente';
+    public $belongsTo = array('TipoDocumento' => array('className'=>'TipoDocumento'));
+    
     public $validate = array(
         'Nome' => array(
             'rule' => 'notBlank'

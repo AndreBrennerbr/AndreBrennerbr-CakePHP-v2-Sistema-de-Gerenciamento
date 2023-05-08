@@ -7,43 +7,45 @@
         'controller' => 'prestadors','action' => 'add'
     )));
    
-    echo $this->Form->input('Nome',array('type'=>'text','class'=>'form-control',
+    echo $this->Form->input('nome',array('type'=>'text','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    echo $this->Form->input('Cnpj',array('type'=>'text','class'=>'form-control',
+    
+    echo $this->Form->input('cnpj',array('type'=>'text','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    echo $this->Form->input('Cpf',array('type'=>'text','class'=>'form-control',
+    
+    echo $this->Form->input('cpf',array('type'=>'text','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    echo $this->Form->input('Endereco',array('type'=>'text','class'=>'form-control',
+    
+    echo $this->Form->input('endereco',array('type'=>'text','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
    
-    echo $this->Form->input('Email',array('type'=>'email','class'=>'form-control',
+    echo $this->Form->input('email',array('type'=>'email','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    echo $this->Form->input('Contato',array('type'=>'number','class'=>'form-control',
+    
+    echo $this->Form->input('contato',array('type'=>'number','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
 
   
 
-    echo $this->Form->input('TipoConta_id', array(
+    echo $this->Form->input('tipo_servico_id', array(
         'type' => 'select',
         'options' => $tipoServico,
         'class'=>'form-control',
         'div'=>array('class'=>'mb-3')
     ));
 
-    echo $this->Form->input('TipoConta_id', array(
+    echo $this->Form->input('tipo_conta_id', array(
         'type' => 'select',
         'options' => $tipocontas,
         'class'=>'form-control',
         'div'=>array('class'=>'mb-3')
     ));
    
-    echo $this->Form->input('Agencia',array('type'=>'number','class'=>'form-control',
+    echo $this->Form->input('agencia',array('type'=>'number','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    echo $this->Form->input('Conta',array('type'=>'number','class'=>'form-control',
+   
+    echo $this->Form->input('conta',array('type'=>'number','class'=>'form-control',
     'div'=>array('class'=>'mb-3')));
-    
-
-
 
     $optionsFinalButton = array(
         'label'=>'Enviar',

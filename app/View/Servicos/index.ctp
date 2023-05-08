@@ -9,29 +9,33 @@
 
 </div>
 
-
 <br>
 <br>
 <table class="datatable">
     <thead>
         <th>Título</th>
+        <th>Prestador</th>
+        <th>Cliente</th>
+        <th>Situação</th>
+        <th>Valor</th>
+        <th>Execução</th>
         <th>Alterar</th>
-        <th>Deletar</th>
+       
     </thead>
     <tbody>
 
 <?php foreach($DataServicos as $Servicos):?>
         <tr>
-            <td><?php echo $this->Html->link($Servicos['Servico']['TituloServico'], array('action' => 'view', $Servicos['Servico']['Id']));?></td> 
-            <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $Servicos['Servico']['Id']));?></td>
-            <td>   
-                <?php echo $this->Form->postLink(
-                    'Delete',
-                    array('action' => 'delete', $Servicos['Servico']['Id']),
-                    array('confirm' => 'Tem certeza que deseja deletar?')
-                )
-                ?>
-            </td>
+            <td><?php echo $this->Html->link($Servicos['Servico']['TituloServico'], array('action' => 'view', $Servicos['Servico']['id']));?></td> 
+            <td><?php echo $Servicos['Prestador']['nome'];?></td>
+            <td><?php echo $Servicos['Cliente']['Nome'];?></td>
+            <td><?php echo $this->Html->link($Servicos['SituacaoServico']['Nome'], array('action' => 'update_status', $Servicos['Servico']['id']));?></td>
+            
+            
+            <td><?php echo 'R$'.number_format(intval($Servicos['Servico']['Valor']), 2, ',', '.');?></td>
+            <td><?php echo date('d-m-Y',strtotime($Servicos['Servico']['DataExecucao']));?></td>
+            <td><?php echo $this->Html->link('Editar', array('action' => 'edit', $Servicos['Servico']['id']));?></td>
+           
         </tr>
 <?php endforeach; ?>
 </tbody>

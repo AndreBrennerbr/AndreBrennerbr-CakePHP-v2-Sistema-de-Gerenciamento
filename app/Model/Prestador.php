@@ -2,55 +2,83 @@
 
 class Prestador extends AppModel {
     public $name = 'prestador';
-    public $validate = array(
-        'Nome' => array(
+
+    public $belongsTo = array(
+        'TipoConta' => array(
+            'className' => 'TipoConta'
+        ),
+        
+        'TipoServico' => array(
+            'className' => 'TipoServico'
+        )
+    );
+    
+   
+
+     public $validate = array(
+        'nome' => array(
             'rule' => 'notBlank'
         ),
-        'Cnpj' => array(
+        'cnpj' => array(
             'rule' => 'notBlank'
         ), 
-        'Cpf' => array(
+        'cpf' => array(
             'rule' => 'notBlank'
         ),
-        'Endereco' => array(
+        'endereco' => array(
             'rule' => 'notBlank'
         ),
-        'Email' => array(
+        'email' => array(
             'rule' => 'notBlank'
         ),
-        'Contato' => array(
+        'contato' => array(
             'rule' => 'notBlank'
         ),
-        'Agencia' => array(
+        'agencia' => array(
             'rule' => 'notBlank'
         ),
-        'Conta' => array(
+        'conta' => array(
             'rule' => 'notBlank'
         )
         
         
-    );
-   
-    function importCsv($filename) {
-        $handle = fopen($filename, "r");
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $this->create();
-            $this->set(array(
-                'Nome' => $data[0],
-                'Cnpj' => $data[1],
-                'Cpf' => $data[2],
-                'Endereco' => $data[3],
-                'Email' => $data[4],
-                'Contato' => $data[5],
-                'Agencia' => $data[6],
-                'Conta' => $data[7],
-          
+    ); 
 
-            ));
-            $this->save();
+    
+    function importCsv($filename) {
+        
+        $handle = fopen($filename, "r");
+        $headers = fgetcsv($handle, 1000, ",");
+        
+        while (($data = fgetcsv($handle)) !== FALSE) {
+            //pr(fgetcsv($handle));
+         
+            $this->create();
+           
+            if(!empty($data) && isset($data[7])){ 
+                $pres = array(
+                    'nome' => (String) $data[0],
+                    'cnpj' =>(String) $data[1],
+                    'cpf' =>(String) $data[2],
+                    'endereco' =>(String) $data[3],
+                    'email' =>(String) $data[4],
+                    'contato' =>(String) $data[5],
+                    'agencia' =>(String) $data[6],
+                    'conta' =>(String) $data[7],
+                    'tipo_conta_id' => 1,
+                    'tipo_servico_id' => 1
+                );
+            }
+
+           
+
+            $this->save($pres); 
+            debug($pres);
         }
         fclose($handle);
-    }
+
+    
+    } 
 
 
 

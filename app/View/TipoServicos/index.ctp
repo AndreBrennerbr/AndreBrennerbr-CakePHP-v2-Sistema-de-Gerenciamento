@@ -16,22 +16,15 @@
     <thead>
         <th>Tipo de Serviço</th>
         <th>Alterar</th>
-        <th>Deletar</th>
+       
     </thead>
     <tbody>
 
 <?php foreach($DataTipoServicos as $DataTipoServico):?>
         <tr>
             <td><?php echo $DataTipoServico['TipoServico']['Nome'];?></td> 
-            <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $DataTipoServico['TipoServico']['Id']));?></td>
-            <td>   
-                <?php echo $this->Form->postLink(
-                    'Delete',
-                    array('action' => 'delete', $DataTipoServico['TipoServico']['Id']),
-                    array('confirm' => 'Tem certeza que deseja deletar?')
-                )
-                ?>
-            </td>
+            <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $DataTipoServico['TipoServico']['id']));?></td>
+           
         </tr>
 <?php endforeach; ?>
 </tbody>

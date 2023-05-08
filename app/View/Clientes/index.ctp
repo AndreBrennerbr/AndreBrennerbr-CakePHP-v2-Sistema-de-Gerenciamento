@@ -12,21 +12,15 @@
     <thead>
         <th>Nome</th>
         <th>Alterar</th>
-        <th>Deletar</th>
+    
     </thead>
     <tbody>
 
 <?php foreach($DataClientes as $Clientes):?>
         <tr>
-            <td> <?php echo $this->Html->link($Clientes['Cliente']['Nome'], array('action' => 'view', $Clientes['Cliente']['Id']));?></td> 
-            <td> <?php echo $this->Html->link('Edit', array('action' => 'edit', $Clientes['Cliente']['Id']));?></td>
-            <td><?php echo $this->Form->postLink(
-                    'Delete',
-                    array('action' => 'delete', $Clientes['Cliente']['Id']),
-                    array('confirm' => 'Tem certeza que deseja deletar?')
-                    )
-                ?>
-            </td>
+            <td> <?php echo $this->Html->link($Clientes['Cliente']['Nome'], array('action' => 'view', $Clientes['Cliente']['id']));?></td> 
+            <td> <?php echo $this->Html->link('Editar', array('action' => 'edit', $Clientes['Cliente']['id']));?></td>
+            
         </tr>
 <?php endforeach; ?>
 </tbody>

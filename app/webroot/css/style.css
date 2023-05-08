@@ -1267,13 +1267,22 @@ h6 {
 
 }
 
-.success,
-.message{
+.success{
   background-color: green;
+}
+
+.error{
+  background-color: red;
+}
+
+.message{
   font-size: 20px;
   color: white;
   text-align: center;
   justify-content: center;
 }
+
+
+
 
 

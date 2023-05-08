@@ -9,32 +9,45 @@ class TipoServicosController extends AppController {
     }
 
     public function view($id = null) {
-        $this->set('DataTipoServicos', $this->TipoServico->findById($id));
+        
+        if ($this->TipoServico->findById($id)) {
+            $this->set('DataTipoServicos', $this->TipoServico->findById($id));
+        }
+       
     }
 
     public function add() {
         if ($this->request->is('post')) {
-            if ($this->TipoServico->save($this->request->data)) {
-                $this->Flash->success('Tipo Servicos cadastrador com sucesso!');
+            try {
+                if ($this->TipoServico->save($this->request->data)) {
+                    $this->Flash->success('Tipo Servicos cadastrador com sucesso!');
+                    $this->redirect(array('action' => 'index'));
+                }
+            } catch (Exception $th) {
+                $this->Flash->error('Erro ao registrar novo tipo de serviço');
                 $this->redirect(array('action' => 'index'));
             }
+            
         }
     }
 
     public function edit($id = null) {
         
-        $this->TipoServico->Id = $id;
+        $this->TipoServico->id = $id;
         
-        if ($this->request->is('get')) {
-            
+        if (empty($this->request->data)) {
             $this->request->data = $this->TipoServico->findById($id);
-        
-        } else {
-            
-            if ($this->TipoServico->save($this->request->data)) {
-                $this->Flash->success($id);
+        }else{
+            try {
+                if ($this->TipoServico->save($this->request->data)) {
+                    $this->Flash->success('Serviço editado com sucesso!');
+                    $this->redirect(array('action' => 'index'));
+                }
+            } catch (Exception $th) {
+                $this->Flash->error('Erro ao editar tipo de serviço');
                 $this->redirect(array('action' => 'index'));
             }
+            
         }
     }
 
@@ -42,9 +55,17 @@ class TipoServicosController extends AppController {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
-        if ($this->TipoServico->delete($id)) {
-            $this->Flash->success('Tipo Servicos deletado com sucesso!');
+       
+        try {
+            if ($this->TipoServico->delete($id)) {
+                $this->Flash->success('Tipo Servicos deletado com sucesso!');
+                $this->redirect(array('action' => 'index'));
+            }
+        
+        } catch (Exception $th) {
+            $this->Flash->error('Erro ao deletar tipo de serviço');
             $this->redirect(array('action' => 'index'));
         }
+       
     }
 }

@@ -1,27 +1,44 @@
-<h1>Edit Cliente</h1>
+<h1>Editar Cliente</h1>
+
+<div class="col-md-8">
 <?php
-
     echo $this->Form->create('Cliente', array('url'   => array(
-        'controller' => 'clientes','action' => 'edit',
+        'controller' => 'clientes','action' => 'edit'
     )));
+    
+    echo $this->Form->input('Nome',array('type'=>'text','class' => 'form-control',
+    'div'=>array('class'=>'mb-3')));
+    
+    echo $this->Form->input('Endereco',array('type'=>'text','class' => 'form-control',
+    'div'=>array('class'=>'mb-3')));
+    
+    echo $this->Form->input('Email',array('type'=>'email','class' => 'form-control',
+    'div'=>array('class'=>'mb-3')));
+    
+    echo $this->Form->input('Contato',array('type'=>'number','class' => 'form-control',
+    'div'=>array('class'=>'mb-3')));
 
-
-    echo $this->Form->input('Nome',array('type'=>'text'));
-    echo $this->Form->input('Endereco',array('type'=>'text'));
-    echo $this->Form->input('Email',array('type'=>'email'));
-    echo $this->Form->input('Contato',array('type'=>'number'));
-
-    echo $this->Form->input('TipoDocumento_id', array(
+    echo $this->Form->input('tipo_documento_id', array(
         'type' => 'select',
-        'options' => array(
-            '1' => 'RG',
-            '2' => 'CNH',
-            '3' => 'CPF'
-        ),
-        'class' => 'my-select-class'
+        'options' => $tipodocumento,
+        'class' => 'form-control',
+        'div'=>array('class'=>'mb-3')
     ));
 
-    echo $this->Form->input('NumeroDocumento',array('type'=>'text'));
+    echo $this->Form->input('NumeroDocumento',array('type'=>'text','class' => 'form-control',
+    'div'=>array('class'=>'mb-3')));
 
-    echo $this->Form->input('Id', array('type' => 'hidden'));
-    echo $this->Form->end('Salvar');
+    echo $this->Form->input('id', array('type' => 'hidden'));
+
+    $optionsFinalButton = array(
+        'label'=>'Enviar',
+        'class' => 'btn btn-primary',
+        'div'=>array('class'=>'mb-3')
+       
+    );
+
+
+    echo $this->Form->end($optionsFinalButton);
+
+    ?>
+</div>

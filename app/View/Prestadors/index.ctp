@@ -28,22 +28,18 @@
 <table class="datatable">
     <thead>
         <th>Nome</th>
+        <th>Tipo de Serviço</th>
         <th>Alterar</th>
-        <th>Deletar</th>
+      
     </thead>
     <tbody>
 <?php foreach($DataPrestadores as $Prestadores):?>
         <tr>
-            <td><?php echo $this->Html->link($Prestadores['Prestador']['Nome'], array('action' => 'view', $Prestadores['Prestador']['Id']));?></td> 
-            <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $Prestadores['Prestador']['Id']));?></td>
-            <td>   
-                <?php echo $this->Form->postLink(
-                            'Delete',
-                            array('action' => 'delete', $Prestadores['Prestador']['Id']),
-                            array('confirm' => 'Tem certeza que deseja deletar?')
-                        )
-                ?>
-            </td>
+            <td><?php echo $this->Html->link($Prestadores['Prestador']['nome'], array('action' => 'view', $Prestadores['Prestador']['id']));?></td> 
+            <td><?php echo $Prestadores['TipoServico']['Nome'];  ?></td>
+            <td><?php echo $this->Html->link('Editar', array('action' => 'edit', $Prestadores['Prestador']['id']));?></td>
+
+           
         </tr>
 <?php endforeach; ?>
 </tbody>

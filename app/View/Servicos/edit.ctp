@@ -1,7 +1,7 @@
-<h2>Novo Serviços</h2>
+<h2>Editar Serviço</h2>
 <?php
 echo $this->Form->create('Servico', array('url'   => array(
-    'controller' => 'servicos', 'action' => 'add'
+    'controller' => 'servicos', 'action' => 'edit'
 )));
 
 
@@ -105,4 +105,3 @@ echo $this->Form->end($optionsFinalButton);
         });
     });
 </script>
-

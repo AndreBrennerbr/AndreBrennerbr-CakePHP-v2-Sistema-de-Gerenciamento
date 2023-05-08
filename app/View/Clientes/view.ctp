@@ -36,8 +36,8 @@
 <label>Tipo Documento:</label>
 
 
-        <?php if(!empty($DataDoc['TipoDocumento']['Nome'])):?>
-            <p><?php echo $DataDoc['TipoDocumento']['Nome']; ?></p>
+        <?php if(!empty($DataClientes['TipoDocumento']['Nome'])):?>
+            <p><?php echo $DataClientes['TipoDocumento']['Nome']; ?></p>
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>

@@ -19,7 +19,7 @@
     echo $this->Form->input('Contato',array('type'=>'number','class' => 'form-control',
     'div'=>array('class'=>'mb-3')));
 
-    echo $this->Form->input('TipoDocumento_id', array(
+    echo $this->Form->input('tipo_documento_id', array(
         'type' => 'select',
         'options' => $tipodocumento,
         'class' => 'form-control',

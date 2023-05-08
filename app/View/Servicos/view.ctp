@@ -12,8 +12,8 @@
 
 <div class="md-3">
 <label>Prestador:</label>
-        <?php if(!empty($DataPrestador['Prestador']['Nome'])):?>
-           <p><?php echo $DataPrestador['Prestador']['Nome']; ?></p> 
+        <?php if(!empty($DataServicos['Prestador']['nome'])):?>
+           <p><?php echo $DataServicos['Prestador']['nome']; ?></p> 
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>
@@ -24,8 +24,8 @@
 
 <div class="md-3">
 <label>Tipo de Serviço:</label>
-        <?php if(!empty($DataTipoServico['TipoServico']['Nome'])):?>
-           <p><?php echo $DataTipoServico['TipoServico']['Nome']; ?></p> 
+        <?php if(!empty($DataServicos['TipoServico']['Nome'])):?>
+           <p><?php echo $DataServicos['TipoServico']['Nome']; ?></p> 
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>
@@ -34,8 +34,8 @@
 
 <div class="md-3">
 <label>Cliente:</label>
-        <?php if(!empty($DataCliente['Cliente']['Nome'])):?>
-           <p><?php echo $DataCliente['Cliente']['Nome']; ?></p> 
+        <?php if(!empty($DataServicos['Cliente']['Nome'])):?>
+           <p><?php echo $DataServicos['Cliente']['Nome']; ?></p> 
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>
@@ -45,8 +45,8 @@
 
 <div class="md-3">
 <label>Situação do Serviço:</label>
-        <?php if(!empty($DataSituacao['SituacaoServico']['Nome'])):?>
-           <p><?php echo $DataSituacao['SituacaoServico']['Nome']; ?></p> 
+        <?php if(!empty($DataServicos['SituacaoServico']['Nome'])):?>
+           <p><?php echo $DataServicos['SituacaoServico']['Nome']; ?></p> 
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>
@@ -79,7 +79,7 @@
 <div class="md-3">
 <label>Data da Execução:</label>
         <?php if(!empty($DataServicos['Servico']['DataExecucao'])):?>
-           <p><?php echo $DataServicos['Servico']['DataExecucao']; ?></p> 
+           <p><?php echo date('d-m-Y',strtotime($DataServicos['Servico']['DataExecucao'])); ?></p> 
         <?php else:?>
             <p>Nenhum dado cadastrado!</p>
         <?php endif; ?>

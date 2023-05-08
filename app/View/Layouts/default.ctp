@@ -7,6 +7,7 @@
 		<?php echo $this->fetch('title'); ?>
 	</title>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
 	<?php
 
@@ -16,7 +17,9 @@
 	//echo $this->fetch('script');
 	//echo $this->Html->script('main.js');
 	?>
-
+		<?php
+	 		echo $this->Html->css('personalizated'); 
+		?>
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>bootstrap/css/bootstrap.min.css" />
 
 
@@ -39,10 +42,7 @@
 
 	<!-- Template Main CSS File -->
 	<?php
-	echo $this->Html->css('style');
-
-	
-	
+	 echo $this->Html->css('style'); 
 	?>
 
 
@@ -84,7 +84,7 @@
 				<ul id="p" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 					<li>
 						<a href="/prestadors/index">
-							<i class="bi bi-circle"></i><span>Listar/Editar/Deletar</span>
+							<i class="bi bi-circle"></i><span>Listar/Editar</span>
 						</a>
 					</li>
 					<li>
@@ -105,7 +105,7 @@
 				<ul id="c" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 					<li>
 						<a href="/clientes/index">
-							<i class="bi bi-circle"></i><span>Listar/Editar/Deletar</span>
+							<i class="bi bi-circle"></i><span>Listar/Editar</span>
 						</a>
 					</li>
 					<li>
@@ -126,7 +126,7 @@
 				<ul id="s" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 					<li>
 						<a href="/servicos/index">
-							<i class="bi bi-circle"></i><span>Listar/Editar/Deletar/Gerar Nota</span>
+							<i class="bi bi-circle"></i><span>Listar/Editar</span>
 						</a>
 					</li>
 					<li>

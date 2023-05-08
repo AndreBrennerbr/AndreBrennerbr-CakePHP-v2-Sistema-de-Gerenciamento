@@ -1,5 +1,6 @@
 <div class="col-md-8">
-<?php echo $this->Form->create('Prestador', array('type' => 'file')); ?>
+<?php echo $this->Form->create('Prestador', array('url'   => array(
+        'controller' => 'prestadors','action' => 'import'), 'type' => 'file')); ?>
 
 <div class="mb-3">
 <?php echo $this->Form->input('csv', array('type' => 'file', 'class'=>'form-control')); ?>
